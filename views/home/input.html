@@ -1,0 +1,51 @@
+<form action="/" method="POST" enctype="multipart/form-data">
+
+    <div class="md-4">
+
+        <div class="div">
+            <label for="">Song File</label>
+            <input type="file" name="songFile" id="songFile" placeholder="song file">
+
+        </div>
+
+        <div class="div">
+            <label for="">Image File</label>
+            <input type="file" name="imageFile" id="imageFile" placeholder="image file">
+        </div>
+
+        <div class="div">
+            <label for="">Tag File</label>
+            <input type="file" name="tagFile" id="tagFile" placeholder="tag file">
+        </div>
+
+        <div class="div">
+            <label for="">New Filename</label>
+            <input type="text" name="newFileName" placeholder="New File Name">
+        </div>
+    </div>
+
+    <div class="md-4">
+        <div class="div">
+            <label for="">Length Of Output</label>
+            <select name="length" id="">
+                            <option value="3">{{options.thirtySec}}</option>
+                            <option value="6">{{options.aMinute}}</option>
+                            <option value="12">{{options.twoMinutes}}</option>
+                            <option value="100">{{options.whole}}</option>
+                        </select>
+        </div>
+
+        <div class="div">
+            <label for="">Interval In Seconds</label>
+            <input type="number" name="interval">
+        </div>
+
+        <div class="div">
+            <button type="button" class="submit" name="createAudio" value="audio">Create Watermarked Audio</button>
+        </div>
+
+        <div class="div">
+            <button type="button" class="submit" name="createVideo" value="video">Create Watermarked Video</button>
+        </div>
+    </div>
+</form>
