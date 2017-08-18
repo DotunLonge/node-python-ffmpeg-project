@@ -8,7 +8,7 @@ function Watermarker(songPath, tagPath, exportAs, intervalTime, lengthTime, call
     let exportLink = `exports/${exportAs}.mp3`;
     let interval = intervalTime;
     let length = lengthTime;
-
+    let link;
     pyshell.send(songLink);
     pyshell.send(tagLink);
     pyshell.send(interval);
@@ -20,16 +20,15 @@ function Watermarker(songPath, tagPath, exportAs, intervalTime, lengthTime, call
         if (trigger == "do") {
             return res.download(callback(message, exportLink));
         } else if (trigger == "dont") {
-            let link = callback(message, exportLink);
-            console.log(link);
-            length = toString(length * 10000);
-            videoMaker(imageFile, link, length, exportAs, res);
+            link = callback(message, exportLink);
         }
     });
 
     // end the input stream and allow the process to exit
     pyshell.end(function(err) {
         if (err) throw err;
+        videoMaker(imageFile, link, length, exportAs, res);
+
         // res.status(204).end();
     })
 }
